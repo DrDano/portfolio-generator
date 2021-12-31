@@ -31,7 +31,12 @@ const promptUser = () => {
     ]);
 };
 
-const promptProject = () => {
+const promptProject = portfolioData => {
+    // if there is no 'projects' array property, create one
+    if (!portfolioData.projects) {
+        portfolioData.projects = [];
+    }
+
     console.log(`
     ==================
     Add a New Project
@@ -72,7 +77,9 @@ const promptProject = () => {
             default: false
         }
 
-    ]);
+    ]).then(projectData => {
+        portfolioData.projects.push(projectData);
+    });
 };
 
 promptUser()
