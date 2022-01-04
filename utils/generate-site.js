@@ -19,9 +19,9 @@ const writeFile = fileContent => {
     });
 };
 
-const copyFile = file => {
+const copyFile = () => {
     return new Promise((resolve, reject) => {
-        fs.copyFile(file, './dist/style.css', err => {
+        fs.copyFile('./src/style.css', './dist/style.css', err => {
             if (err) {
                 reject(err);
                 return;
@@ -35,10 +35,4 @@ const copyFile = file => {
     });
 };
 
-// writeFile('<h1>This will be written to the file!<h1>')
-// .then(successfulResponse => {
-//     console.log(successfulResponse)
-// })
-// .catch(errorResponse => {
-//     console.log(errorResponse)
-// })
+module.exports = { writeFile, copyFile };
